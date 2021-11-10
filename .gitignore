@@ -1,0 +1,13 @@
+# Build directory
+build/
+
+# Cache objects
+packer_cache/
+*.iso
+
+# Crash log
+crash.log
+
+# For built boxes
+*.box
+*.raw
