@@ -14,7 +14,8 @@ variable "arch" {
 
 variable "iso_checksum" {
   type        = string
-  default     = "20294cfb0f7f9821a50baf07d11802f443b9b343a980305b50fed9c9079a7bba28b61c1586b3e30bced88822a44efc0d995317afef7d4247ebf18279ce149506"
+  #default     = "file:https://channels.nixos.org/nixos-21.05/latest-nixos-minimal-x86_64-linux.iso.sha256"
+  default     = "none"
   description = "ISO Checksum"
 }
 
