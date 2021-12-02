@@ -2,7 +2,7 @@
 
 variable "version" {
   type        = string
-  default     = "21.05"
+  default     = "21.11"
   description = "NixOS Version"
 }
 
