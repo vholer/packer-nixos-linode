@@ -2,7 +2,7 @@
 
 variable "version" {
   type        = string
-  default     = "21.11"
+  default     = "22.05"
   description = "NixOS Version"
 }
 
@@ -47,7 +47,7 @@ source "qemu" "nixos" {
   boot_wait         = "10s"
   disk_cache        = "unsafe"
   disk_interface    = "virtio-scsi"
-  disk_size         = "1536M"
+  disk_size         = "2048M"
   format            = "raw"
 
   iso_checksum      = "${var.iso_checksum}"
