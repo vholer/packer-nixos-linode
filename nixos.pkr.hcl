@@ -1,8 +1,17 @@
+packer {
+  required_plugins {
+    qemu = {
+      version = "~> 1"
+      source  = "github.com/hashicorp/qemu"
+    }
+  }
+}
+
 ### Variables
 
 variable "version" {
   type        = string
-  default     = "22.11"
+  default     = "24.05"
   description = "NixOS Version"
 }
 
@@ -47,7 +56,7 @@ source "qemu" "nixos" {
   boot_wait         = "10s"
   disk_cache        = "unsafe"
   disk_interface    = "virtio-scsi"
-  disk_size         = "2048M"
+  disk_size         = "3072M"
   format            = "raw"
 
   iso_checksum      = "${var.iso_checksum}"
@@ -56,7 +65,7 @@ source "qemu" "nixos" {
     "https://channels.nixos.org/nixos-${var.version}/latest-nixos-minimal-${var.arch}-linux.iso"
   ]
 
-  memory           = "1024"
+  memory           = "1536"
   http_directory   = "src"
   output_directory = local.output_dir
 
@@ -64,6 +73,7 @@ source "qemu" "nixos" {
   ssh_timeout      = "30m"
   #ssh_username     = "nixos"
   #ssh_password     = "nixos"
+  shutdown_timeout = "10m"
 
   vm_name          = local.filename
 }
